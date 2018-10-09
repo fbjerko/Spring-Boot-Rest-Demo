@@ -1,0 +1,21 @@
+# Read all registrations:
+curl -i -H "Content-Type: application/json" -X GET localhost:8080/registrations
+
+# Add new registration
+curl -i -H "Content-Type: application/json" -X POST -d '{
+        "carRegNr": "AA 11111",
+        "ownerName": "Ola Nordmann"
+    }' localhost:8080/register
+
+# List all registrations:
+curl -i -H "Content-Type: application/json" -X GET localhost:8080/registrations
+
+# Get one registration
+curl -i -H "Content-Type: application/json" \
+    -X GET localhost:8080/registrations/2
+
+# Change one pledge
+curl -i -H "Content-Type: application/json" -X PUT -d '{
+          "carRegNr": "BB 12345",
+          "ownerName": "Kari Nordmann"
+    }' localhost:8080/registrations/2
